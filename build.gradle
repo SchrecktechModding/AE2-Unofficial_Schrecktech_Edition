@@ -16,34 +16,60 @@
  * along with Applied Energistics 2.  If not, see <http://www.gnu.org/licenses/lgpl>.
  */
 
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            url = "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'de.undercouch:gradle-download-task:3.2.0'
+        classpath "com.wynprice.cursemaven:CurseMaven:2.1.1"
+    }
+}
+
+// Because Forge is too stupid to fix Deprecation Issues, and we cannot fix it on our end! (until we fork Forge)
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+}
+
+apply plugin: 'eclipse'
+eclipse {
+    classpath {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+apply plugin: 'idea'
+idea{
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
 apply plugin: 'forge'
+apply plugin: "com.wynprice.cursemaven"
 
 apply from: 'gradle/scripts/dependencies.gradle'
 apply from: 'gradle/scripts/artifacts.gradle'
 apply from: 'gradle/scripts/autoinstallruntime.gradle'
 apply from: 'gradle/scripts/integration.gradle'
 apply from: 'gradle/scripts/optional.gradle'
-
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-    }
-
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-    }
-}
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -86,7 +112,7 @@ minecraft {
     replace "@aebuild@", aebuild
 
     // used when launching minecraft in dev env
-    runDir = "run"
+    runDir = ".minecraft"
 }
 
 sourceSets {

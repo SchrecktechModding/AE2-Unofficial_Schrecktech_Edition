@@ -1,7 +1,8 @@
+<!---
 [![Build Status](https://travis-ci.org/xsun2001/Applied-Energistics-2-Unofficial.svg?branch=rv3-1.7.10)](https://travis-ci.org/xsun2001/Applied-Energistics-2-Unofficial)
-[![Build status](https://ci.appveyor.com/api/projects/status/dkc9k9fvpajb374f?svg=true)](https://ci.appveyor.com/project/xsun2001/applied-energistics-2-unofficial)
-[![GitHub release](https://img.shields.io/github/release/xsun2001/Applied-Energistics-2-Unofficial.svg?style=flat)](https://github.com/xsun2001/Applied-Energistics-2-Unofficial/releases)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/dkc9k9fvpajb374f?svg=true)](https://ci.appveyor.com/project/SchrecktechModding/AE2-Unofficial_Schrecktech_Edition)
+[![GitHub release](https://img.shields.io/github/release/SchrecktechModding/AE2-Unofficial_Schrecktech_Edition.svg?style=flat)](https://github.com/SchrecktechModding/AE2-Unofficial_Schrecktech_Edition/releases)
+--->
 # Applied Energistics 2 Unofficial
 
 ## Table of Contents
